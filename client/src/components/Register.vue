@@ -1,19 +1,15 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
-        </v-toolbar>
-        <div class="pl-4 pr-4 pt-2 pb-2">
-          <v-text-field type="email" v-model="email" name="email" label="Email"/>
+      <panel title="Register">
+        <v-text-field type="email" v-model="email" name="email" label="Email"/>
           <br>
           <v-text-field type="password" v-model="password" name="password" label="Password"/>
           <br>
           <div class="error" v-html="error"/>
           <br>
           <v-btn class="cyan" dark @click="register">Register</v-btn>
-        </div>
+      </panel>
       </div>
     </v-flex>
   </v-layout>
@@ -21,6 +17,7 @@
 
 <script>
 import AuthenticationSevice from '@/services/AuthenticationSevice.js'
+import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -43,7 +40,10 @@ export default {
           this.error = error.response.data.error
         }
     }
-  }
+  },
+  components: {
+        Panel
+    }
 }
 </script>
 
