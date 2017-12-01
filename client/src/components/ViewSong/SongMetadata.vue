@@ -11,7 +11,7 @@
             <div class="song-genre">
                 {{song.genre}}
             </div>
-            <v-btn dark class="cyan" :to="{name: 'song-edit', params: {songId: song.id}}">
+            <v-btn dark class="cyan" :to="{name: 'song-edit', params(){ return {songId: song.id}}}">
                 Edit
             </v-btn>
         </v-flex>
